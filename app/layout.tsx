@@ -21,28 +21,34 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
 
         {/* Zammad Chat Script */}
-<script src="https://fazer.zammad.com/assets/chat/chat-no-jquery.min.js"></script>
-<script>
-(function() {
-  new ZammadChat({
-    title: '<strong>Chat with us!</strong> We\'re here to help!',
-    background: '#5c18db',
-    fontSize: '12px',
-    chatId: 1
-  });
-})();
-</script>
+        <Script
+          src="https://fazer.zammad.com/assets/chat/chat-no-jquery.min.js"
+          strategy="afterInteractive"
+        />
+
+        <Script id="zammad-chat-init" strategy="afterInteractive">
+          {`
+            (function () {
+              if (typeof ZammadChat !== "undefined") {
+                new ZammadChat({
+                  title: "<strong>Chat with us!</strong> We're here to help!",
+                  background: "#5c18db",
+                  fontSize: "12px",
+                  chatId: 1
+                });
+              }
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );
