@@ -29,7 +29,6 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
 
-        {/* Zammad Chat Script */}
         <Script
           src="https://fazer.zammad.com/assets/chat/chat-no-jquery.min.js"
           strategy="afterInteractive"
@@ -37,12 +36,12 @@ export default function RootLayout({
 
         <Script id="zammad-chat-init" strategy="afterInteractive">
           {`
-            (function () {
-              if (typeof ZammadChat !== "undefined") {
+            (function() {
+              if (window.ZammadChat) {
                 new ZammadChat({
-                  title: "<strong>Chat with us!</strong> We're here to help!",
-                  background: "#5c18db",
-                  fontSize: "12px",
+                  title: '<strong>Chat with us!</strong> We\\'re here to help!',
+                  background: '#5c18db',
+                  fontSize: '12px',
                   chatId: 1
                 });
               }
