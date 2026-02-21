@@ -34,9 +34,6 @@ export default function Home() {
             people who make it.
           </p>
         </div>
-        <button className="open-zammad-chat">
-          Chat with us
-        </button>
       </main>
 
       <footer className="border-t border-slate-700/50 py-6 px-6">
