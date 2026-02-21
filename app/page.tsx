@@ -34,6 +34,17 @@ export default function Home() {
             people who make it.
           </p>
         </div>
+        <script src="https://fazer.zammad.com/assets/chat/chat-no-jquery.min.js"></script>
+        <script>
+          (function() {
+            new ZammadChat({
+              title: '<strong>Chat with us!</strong> We\'re here to help!',
+              background: '#5c18db',
+              fontSize: '12px',
+              chatId: 1
+            });
+        })();
+      </script>
       </main>
 
       <footer className="border-t border-slate-700/50 py-6 px-6">
