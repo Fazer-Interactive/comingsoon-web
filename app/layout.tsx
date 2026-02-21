@@ -32,26 +32,17 @@ export default function RootLayout({
         {children}
 
         {/* Zammad Chat Script */}
-        <Script
-          src="https://fazer.zammad.com/assets/chat/chat-no-jquery.min.js"
-          strategy="afterInteractive"
-        />
-
-        <Script id="zammad-chat-init" strategy="afterInteractive">
-          {`
-            (function () {
-              if (typeof ZammadChat !== "undefined") {
-                new ZammadChat({
-                  title: "<strong>Chat with us!</strong> We're here to help!",
-                  background: "#5c18db",
-                  fontSize: "12px",
-                  chatId: 1,
-                  show: false
-                });
-              }
-            })();
-          `}
-        </Script>
+<script src="https://fazer.zammad.com/assets/chat/chat-no-jquery.min.js"></script>
+<script>
+(function() {
+  new ZammadChat({
+    title: '<strong>Chat with us!</strong> We\'re here to help!',
+    background: '#5c18db',
+    fontSize: '12px',
+    chatId: 1
+  });
+})();
+</script>
       </body>
     </html>
   );
